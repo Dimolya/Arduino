@@ -1,0 +1,19 @@
+#define trigPin 12
+#define echoPin 13
+void setup() {
+Serial.begin(9600);
+pinMode(trigPin,OUTPUT);
+pinMode(echoPin,INPUT);
+}
+
+void loop() {
+long duraction, distanse;
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+duraction = pulseIn(echoPin, HIGH);
+distanse = (duraction/2) /29.1;
+Serial.println(distanse);
+}
